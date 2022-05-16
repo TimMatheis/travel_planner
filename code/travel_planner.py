@@ -297,16 +297,13 @@ result_window.mainloop()
 
 monster_window = Tk()
 monster_window.title("Your suggested travel destinations")
-monster_window.geometry('800x250+500+500')
+monster_window.geometry('1000x1000+50+50')
 monster_window.attributes('-topmost', 1)
 
 
 best_country = df_scores.loc[1,"Country"]
-print(best_country)
 
-# image_path = "../images/monster_" + best_country + ".jpeg"
-image_path = "../images/monster.jpeg"
-print(image_path)
+image_path = "../images/monster_" + best_country + ".png"
 
 #Creates a Tkinter-compatible photo image, which can be used everywhere Tkinter expects an image object.
 img = ImageTk.PhotoImage(Image.open(image_path))
@@ -321,3 +318,43 @@ monster_window.mainloop()
 
 
 #####################
+
+#Create Popup
+result_window = Tk()
+result_window.title("Your suggested travel destinations")
+result_window.geometry('1500x1000+50+50')
+result_window.attributes('-topmost', 1)
+result_window.columnconfigure(0, weight=20)
+result_window.columnconfigure(1, weight=20)
+result_window.columnconfigure(2, weight=20)
+result_window.columnconfigure(3, weight=20)
+
+tk.Label(result_window, text="These are your top 3 results",font=("Lucida",15,"bold")).grid(row=0, column=0)
+tk.Label(result_window, text="Rank",font=("Lucida",12,"bold")).grid(row=1, column=0)
+tk.Label(result_window, text="1",fg="gold",font=("Lucida",10,"bold")).grid(row=2, column=0)
+tk.Label(result_window, text="2").grid(row=3, column=0)
+tk.Label(result_window, text="3").grid(row=4, column=0)
+tk.Label(result_window, text="City",font=("Lucida",12,"bold")).grid(row=1, column=1)
+tk.Label(result_window, text=str(df_scores.loc[1,"City"]),fg="gold",font=("Lucida",10,"bold")).grid(row=2, column=1)
+tk.Label(result_window, text=str(df_scores.loc[2,"City"])).grid(row=3, column=1)
+tk.Label(result_window, text=str(df_scores.loc[3,"City"])).grid(row=4, column=1)
+tk.Label(result_window, text="Match",font=("Lucida",12,"bold")).grid(row=1, column=2)
+tk.Label(result_window, text=str(df_scores.loc[2,"Score"])+ "%",fg="gold",font=("Lucida",10,"bold")).grid(row=2, column=2)
+tk.Label(result_window, text=str(df_scores.loc[2,"Score"])+ "%").grid(row=3, column=2)
+tk.Label(result_window, text=str(df_scores.loc[2,"Score"])+ "%").grid(row=4, column=2)
+tk.Label(result_window, text="").grid(row=5, column=2)
+tk.Label(result_window, text="").grid(row=6, column=2)
+tk.Label(result_window, text="").grid(row=7, column=2)
+tk.Label(result_window, text="").grid(row=8, column=2)
+tk.Label(result_window, text="").grid(row=9, column=2)
+
+best_country = df_scores.loc[1,"Country"]
+image_path = "../images/monster_" + best_country + ".png"
+
+#Creates a Tkinter-compatible photo image
+img = ImageTk.PhotoImage(Image.open(image_path))
+
+#The Label widget is a standard Tkinter widget used to display a text or image on the screen.
+panel = tk.Label(result_window, image = img).grid(row=50, column=1)
+ 
+result_window.mainloop()
