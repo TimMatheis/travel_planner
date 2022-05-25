@@ -417,7 +417,7 @@ def main():
     # only keep locations for the chosen activity category
     test_set_clean = get_category_data(test_set, user_activity)
     
-    # sort and rank the remaining locations accorind to the other preferences
+    # sort and rank the remaining locations according to the other preferences
     df_scores = rank_locations(test_set_clean, user_prio1, user_prio2, user_prio3, user_prio4, user_prio5)
     
     # display the best travel locations
