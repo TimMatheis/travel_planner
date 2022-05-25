@@ -1,6 +1,6 @@
 """
 
-STRUCTURE OF THIS FILE:
+STRUCTURE OF THIS SCRIPT:
 
 1. load packages
 2. define needed functions
