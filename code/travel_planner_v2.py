@@ -16,8 +16,12 @@ from tkinter import ttk
 from ctypes import windll
 from tkinter.messagebox import showinfo
 from tkinter import * 
+from tkinter.font import Font, nametofont
 from PIL import ImageTk, Image
 import sys
+import datetime
+import webbrowser
+import pygame
 windll.shcore.SetProcessDpiAwareness(1)
 
 
@@ -332,6 +336,8 @@ def show_results(df_scores):
     - recommends top 3 locations (sorted) with their scores
     - the flag of the top location is shown
     - "holiday greetings" are written in the language of the top recommended location
+    - play button to play holiday song
+    - link to flight booking website for top holiday location 
     """
     
     # create a table
@@ -354,7 +360,7 @@ def show_results(df_scores):
     #Create Popup
     result_window = Tk()
     result_window.title("Your suggested travel destinations")
-    result_window.geometry('1500x1000+50+50')
+    result_window.geometry('1500x1200+50+50')
     result_window.attributes('-topmost', 1)
     result_window.columnconfigure(0, weight=20)
     result_window.columnconfigure(1, weight=20)
@@ -371,15 +377,80 @@ def show_results(df_scores):
     tk.Label(result_window, text=str(df_scores.loc[2,"City"])).grid(row=3, column=1)
     tk.Label(result_window, text=str(df_scores.loc[3,"City"])).grid(row=4, column=1)
     tk.Label(result_window, text="Match",font=("Lucida",12,"bold")).grid(row=1, column=2)
-    tk.Label(result_window, text=str(df_scores.loc[2,"Score"])+ "%",fg="gold",font=("Lucida",10,"bold")).grid(row=2, column=2)
+    tk.Label(result_window, text=str(df_scores.loc[1,"Score"])+ "%",fg="gold",font=("Lucida",10,"bold")).grid(row=2, column=2)
     tk.Label(result_window, text=str(df_scores.loc[2,"Score"])+ "%").grid(row=3, column=2)
-    tk.Label(result_window, text=str(df_scores.loc[2,"Score"])+ "%").grid(row=4, column=2)
+    tk.Label(result_window, text=str(df_scores.loc[3,"Score"])+ "%").grid(row=4, column=2)
     tk.Label(result_window, text="").grid(row=5, column=2)
     tk.Label(result_window, text="").grid(row=6, column=2)
-    tk.Label(result_window, text="").grid(row=7, column=2)
-    tk.Label(result_window, text="").grid(row=8, column=2)
-    tk.Label(result_window, text="").grid(row=9, column=2)
+    
+    iatacodes_dict = {
+        "Nice": {"code": "NCE"},
+        "Barcelona": {"code": "BCN"},
+        "London": {"code": "LHR"},
+        "Faro": {"code": "FAO"},
+        "Paris": {"code": "CDG"},
+        "Amsterdam": {"code": "AMS"},
+        "Oslo": {"code": "OSL"},
+        "Reykjavik": {"code": "RKV"},
+        "Edinburgh": {"code": "EDI"},
+        "Prag": {"code": "PRG"},
+        "Rimini": {"code": "RMI"},
+        "Ibiza": {"code": "IBZ"},
+        "Crete": {"code": "HER"},
+        "Split": {"code": "SPU"},
+        "Budapest": {"code": "BUD"},
+        "Krakow": {"code": "KRK"},
+        "Chamonix": {"code": "NCY"},
+        "Tirana": {"code": "TIA"},
+        "Lisbon": {"code": "LSI"},
+        "Rome": {"code": "FCO"}
+    }
 
+    # information for flight website
+    tomorrow = datetime.date.today() + datetime.timedelta(days = 1)
+    date_code = tomorrow.strftime("%Y-%m-%d")
+    city1 = df_scores.loc[1,"City"]
+    city1_code = iatacodes_dict[city1]["code"]
+    
+    def callback(url):
+        """
+        opens the url which is passed in the browser
+
+        Args:
+            url: website name
+        """
+        webbrowser.open_new(url)
+
+    # create clickable label for flight booking
+    link1 = Label(result_window, text="Don't wait, click here to book your flight now!", fg="blue", cursor="hand2")
+    website = str("https://www.kayak.ch/flights/ZRH-%s/%s?sort=bestflight_a" % (city1_code, date_code))
+    link1.bind("<Button-1>", lambda e: callback(website))
+    link1.grid(row=7, column=1)
+    tk.Label(result_window, text="Only a few seats left!").grid(row=8, column=1)
+    tk.Label(result_window, text="").grid(row=9, column=2)
+    
+    pygame.mixer.init()
+    
+    def play():
+        """
+        play audio (pina colada song) three times
+        """
+        pygame.mixer.music.load("../audio/Pina_Colada.mp3")
+        pygame.mixer.music.play(loops=3)
+    
+    link2 = Button(result_window, 
+                   text="Give me holiday vibes! (Please turn up speaker volume)", 
+                   command=play,
+                   bg = "grey",
+                   fg = "white",
+                   cursor="hand2"
+                   )
+    link2.grid(row=10, column=1)
+    
+    tk.Label(result_window, text="").grid(row=11, column=2)
+    tk.Label(result_window, text="").grid(row=12, column=2)
+
+    # get information of image for best country
     best_country = df_scores.loc[1,"Country"]
     image_path = "../images/monster_" + best_country + ".png"
 
@@ -387,8 +458,9 @@ def show_results(df_scores):
     img = ImageTk.PhotoImage(Image.open(image_path))
 
     #The Label widget is a standard Tkinter widget used to display a text or image on the screen.
-    tk.Label(result_window, image = img).grid(row=50, column=1)
+    tk.Label(result_window, image = img).grid(row=55, column=1)
     
+    # display the result window
     result_window.mainloop()
 
 
@@ -422,6 +494,8 @@ def main():
     
     # display the best travel locations
     show_results(df_scores)
+    
+    
     
     
 
