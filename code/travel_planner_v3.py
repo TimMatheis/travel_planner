@@ -302,7 +302,7 @@ def rank_locations(test_set_clean, user_prio1, user_prio2, user_prio3, user_prio
             else: 
                 df_scores.loc[i, x] = 0
 
-    for y in ["Average Temp", "Sun hours per day"]:
+    for y in ["Average Temp"]:
         for j in range(0, len(df_scores)):
             if test_set_clean.loc[j, y] >= test_set_clean[y].median():
                 df_scores.loc[j, y] = 1
@@ -476,7 +476,7 @@ def main():
     """
     
     # load csv containing our travel location data
-    test_set = pd.read_csv("../data/destinations_v5.csv", sep=";")
+    test_set = pd.read_csv("../data/destinations_v6.csv", sep=";")
     
     # create a survey, ask the user for their preferences and save them as variables
     user_activity, user_season, user_prio1, user_prio2, user_prio3, user_prio4, user_prio5 = create_survey()
