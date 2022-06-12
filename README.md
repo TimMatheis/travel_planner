@@ -8,7 +8,7 @@ The aim of this project was to develop a survey in a graphical user interface (G
 ![Demo](demonstration/demo.gif)
 
 # File description:
-Our github repository divides itself into four folders:
+Our github repository divides itself into five folders:
 
 •	`audio` folder: this folder contains an audio file which is used in the code.
 
