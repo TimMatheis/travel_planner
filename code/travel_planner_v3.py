@@ -476,7 +476,7 @@ def main():
     """
     
     # load csv containing our travel location data
-    test_set = pd.read_csv("../data/destinations_v6.csv", sep=";")
+    test_set = pd.read_csv("../data/destinations_v6.csv")
     
     # create a survey, ask the user for their preferences and save them as variables
     user_activity, user_season, user_prio1, user_prio2, user_prio3, user_prio4, user_prio5 = create_survey()
