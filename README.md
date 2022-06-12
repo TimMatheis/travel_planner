@@ -14,9 +14,9 @@ Our github repository divides itself into four folders:
 
 •	“data” folder: this folder contains the CSV file (“destinations_v6”) with the underlying data on city characteristics.
 
-•	“images” folder: this folder contains images which are utilized by the code if certain conditions are met.
-
 •	“demonstration” folder: this folder contains the gif showing how to run our code.
+
+•	“images” folder: this folder contains images which are utilized by the code if certain conditions are met.
 
 # Instructions:
 1.	Download and save the entire zip file from github.
