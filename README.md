@@ -8,6 +8,8 @@ The aim of this project was to develop a survey in a graphical user interface (G
 # File description:
 Our github repository divides itself into four folders:
 
+•	“audio” folder: this folder contains an audio file which is used in the code.
+
 •	“code” folder: this folder contains the Python file (“travel_planner_v3”) which executes our Travel Planner.
 
 •	“data” folder: this folder contains the CSV file (“destinations_v6”) with the underlying data on city characteristics.
@@ -15,8 +17,6 @@ Our github repository divides itself into four folders:
 •	“images” folder: this folder contains images which are utilized by the code if certain conditions are met.
 
 •	“demonstration” folder: this folder contains the gif showing how to run our code.
-
-•	“audio” folder: this folder contains an audio file which is used in the code.
 
 # Instructions:
 1.	Download and save the entire zip file from github.
