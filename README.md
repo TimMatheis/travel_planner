@@ -5,6 +5,8 @@ The group project was completed by Tim Matheis, Hanna Klarner, Tim Saure, Lasse 
 # Brief description:
 The aim of this project was to develop a survey in a graphical user interface (GUI) which ranks cities on their suitability as the user’s next holiday destination. The ranking of cities is based on the match between the user’s indicated preferences regarding season, type of holiday, and several key characteristics of vacations (e.g., temperature, budget, etc.) and the city’s own characteristics as indicated in the underlying database. As final output the user receives the top three cities which best match his indicated preferences along with a link to the Kayak website for flights on the next day to the highest ranked city and music to get the user into the “holiday mood”.
 
+![Demo](demonstration/demo.gif)
+
 # File description:
 Our github repository divides itself into four folders:
 
@@ -26,7 +28,7 @@ Our github repository divides itself into four folders:
 5.	A window should pop up with your top three travel destinations as well as a link to the Kayak website for flights on the next day and music to get you into the “holiday mood”.
 6.	Once you are finished, please close the window to stop the code.
 
-For a visual demonstration of this process, please refer to the gif attached to the bottom this read.me which shows all the main steps of running our program.
+For a visual demonstration of this process, please refer to the gif attached above which shows all the main steps of running our program.
 
 # Project Description:
 As a first step we import all necessary libraries (i.e., Pandas, Tkinter, ctypes, PIL, and Sys). We then create the function create_survey which defines the GUI in which the user indicates what type of holiday the user wants to go on, the preferred season of the user to travel in, and the user’s ranking of five key characteristics of vacations (i.e., average temperature, budget, CO2 emissions, budget, and rain probability) according to the user’s preferences. This results in seven inputs for the underlying code (i.e., type of holiday, season, and a ranking of the five vacation characteristics).
@@ -46,7 +48,7 @@ Finally, we create the function show_results which outputs the top three cities 
 The main function can be used to call all functions described above and thus execute the code as one.
 
 
-![Demo](demonstration/demo.gif)
+
 
 # Sources:
 
