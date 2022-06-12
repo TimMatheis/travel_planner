@@ -10,19 +10,19 @@ The aim of this project was to develop a survey in a graphical user interface (G
 # File description:
 Our github repository divides itself into four folders:
 
-•	“audio” folder: this folder contains an audio file which is used in the code.
+•	`audio` folder: this folder contains an audio file which is used in the code.
 
-•	“code” folder: this folder contains the Python file (“travel_planner_v3”) which executes our Travel Planner.
+•	`code` folder: this folder contains the Python file (`travel_planner_v3.py`) which executes our Travel Planner.
 
-•	“data” folder: this folder contains the CSV file (“destinations_v6”) with the underlying data on city characteristics.
+•	`data` folder: this folder contains the CSV file (`destinations_v6.csv`) with the underlying data on city characteristics.
 
-•	“demonstration” folder: this folder contains the gif showing how to run our code.
+•	`demonstration` folder: this folder contains the gif showing how to run our code.
 
-•	“images” folder: this folder contains images which are utilized by the code if certain conditions are met.
+•	`images` folder: this folder contains images which are utilized by the code if certain conditions are met.
 
 # Instructions:
 1.	Download and save the entire zip file from github.
-2.	Open the Python file in the “code” folder and execute the code.
+2.	Open the Python file in the `code` folder and execute the code.
 3.	A window should pop up in which you can indicate the type of holiday you want to go on, your preferred season for travelling, and the relative importance you give to several characteristics of vacations. Please make sure to indicate each characteristic of a vacation at least once in your ranking.
 4.	Once you are finished with your selection, please press on the “Submit” button.
 5.	A window should pop up with your top three travel destinations as well as a link to the Kayak website for flights on the next day and music to get you into the “holiday mood”.
@@ -52,10 +52,7 @@ The main function can be used to call all functions described above and thus exe
 
 # Sources:
 
-CO2 emissions: https://co2.myclimate.org/en/flight_calculators/new
-
-Average temperature and rain probability: https://www.climatestotravel.com/
-
-Travel time: https://www.google.com/travel/flights/
-
-Type of holiday and budget determined via self-assessment
+- CO2 emissions: https://co2.myclimate.org/en/flight_calculators/new
+- Average temperature and rain probability: https://www.climatestotravel.com/
+- Travel time: https://www.google.com/travel/flights/
+- Type of holiday and budget determined via self-assessment
