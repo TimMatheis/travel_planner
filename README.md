@@ -33,7 +33,7 @@ As a first step we import all necessary libraries (i.e., Pandas, Tkinter, ctypes
 
 To ensure that the user does not forget to make a selection regarding season and type of holiday or indicate one vacation characteristic multiple times we next define the check_valid_input function. This function will return an error message whenever the user fails to indicate a season or type of holiday and if the user does not rank all five characteristics of a vacation.
 
-With our GUI and input checks complete we now turn to the actual data processing. Our data is contained within a CSV file which we created from multiple sources. This file contains monthly data for 20 cities on what types of holidays were possible there, what CO2 emissions and travel time would be necessary to travel there from Zurich by plane, what budget would be required within the city, as well as the monthly average temperature and rain probability. Please refer to the below table for more details on the different variables:
+With our GUI and input checks complete we now turn to the actual data processing. Our data is contained within a CSV file which we created from multiple sources. This file contains monthly data for 20 cities on what types of holidays were possible there, what CO2 emissions and travel time would be necessary to travel there from Zurich by plane, what budget would be required within the city, as well as the monthly average temperature and rain probability. Please refer to the below table for more details on the different variables (sources for these variables found at the bottom of this read.me):
 
 ![image](https://user-images.githubusercontent.com/88341561/173243620-7dd42e26-940b-4211-b2b2-9106d60052d6.png)
 
@@ -47,3 +47,13 @@ The main function can be used to call all functions described above and thus exe
 
 
 ![Demo](demonstration/demo.gif)
+
+# Sources:
+
+CO2 emissions: https://co2.myclimate.org/en/flight_calculators/new
+
+Average temperature and rain probability: https://www.climatestotravel.com/
+
+Travel time: https://www.google.com/travel/flights/
+
+Type of holiday and budget determined via self-assessment
